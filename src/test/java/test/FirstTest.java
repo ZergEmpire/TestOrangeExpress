@@ -13,54 +13,47 @@ public class FirstTest extends TestBase {
     public void ScenarioForTestSendOrder() {
         main.goTo();
         taskThreeTestSecondarySS.GoMainPage();
-        taskSecondSendAnOrder.MathRandomHead()
-
-                .ClickRandomCard()
-                .GoToFiledBasket()
+        taskSecondSendAnOrder
                 .MathRandomHead()
-
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
-
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
-
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
-                
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
+                .AssertElementsInMenu()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
                 .MathRandomHead()
+                .AssertElementsInMenu()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
                 .MathRandomHead()
+                .AssertElementsInMenu()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
                 .MathRandomHead()
+                .AssertElementsInMenu()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
+                .GoToFiledBasket().MathRandomHead()
+                .AssertElementsInMenu()
                 .ScrollMenuToProductCards()
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
 
-
-
-                .GoToFiledBasket()
                 .FillInFields()
                 .selectPayType()
                 .SendOrder()
@@ -74,6 +67,7 @@ public class FirstTest extends TestBase {
     @Test
     public void ScenarioForTesOfSecondarySiteSections() {
         main.goTo();
+        taskThreeTestSecondarySS.GoMainPage();
         taskThreeTestSecondarySS.ScrollToFooterMainPage()
                 .CheckElementsInFooterSection()
                 .GoToDeliverySiteSections()

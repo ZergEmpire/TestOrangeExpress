@@ -41,13 +41,23 @@ public class TaskSecondSendAnOrder extends PageBase {
 
 
     public TaskSecondSendAnOrder ScrollMenuToProductCards(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, \"productBox\") and not(contains(@class, \"in-stop-list\")) and not (contains(@class, \"action-wrapper\"))]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, \"productBox\")]")));
         JavascriptExecutor je = (JavascriptExecutor) driver;
-        WebElement element = driver.findElement(By.xpath("//div[contains(@class, \"productBox\") and not(contains(@class, \"in-stop-list\"))]"));
+        WebElement element = driver.findElement(By.xpath("//div[contains(@class, \"productBox\")]"));
         je.executeScript("arguments[0].scrollIntoView(true);",element);
+
         return this;
     }
 
+    public TaskSecondSendAnOrder AssertElementsInMenu (){
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class, \"productBox\")]")));
+        JavascriptExecutor je = (JavascriptExecutor) driver;
+        WebElement TitleElement = driver.findElement(By.xpath("//div[contains(@class, \"mt-lg-4 mt-2\")]"));
+        je.executeScript("arguments[0].scrollIntoView(true);",TitleElement);
+        isElementByDisplayed(By.xpath("//div[contains(@class, \"mt-lg-4 mt-2\")]"));
+        /*isElementByDisplayed(By.xpath("//div[contains(@class, \"btn-basket\")]"));*/
+        return this;
+    }
 
 
 

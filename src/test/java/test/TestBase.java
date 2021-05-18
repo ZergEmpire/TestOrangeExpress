@@ -46,10 +46,10 @@ public class TestBase {
 
 
         //Сюда то, что выполняется после выполнения теста
-       /* @AfterEach
+        @AfterEach
         public void finish(){
             driver.quit();
-       }*/
+       }
 
     }
 
