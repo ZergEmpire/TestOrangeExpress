@@ -123,7 +123,7 @@ public class TaskSecondSendAnOrder extends PageBase {
         /*JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click[1];",GoSendOrder);  *//* .scrollIntoView(true)*/
         GoSendOrder.click();
-        wait.until(ExpectedConditions.urlContains("http://testorange.mnogo.menu/order/complete/"));
+        wait.until(ExpectedConditions.urlContains("/complete/"));
         isElementByDisplayed(By.xpath("//b[contains(text(),'Информация о заказе')]"));
         return this;
     }
@@ -150,6 +150,13 @@ public class TaskSecondSendAnOrder extends PageBase {
 
     public TaskSecondSendAnOrder CheckStatusOrder(){
         isElementByDisplayed(By.xpath("//span[contains(text(),'Принят')]"));
+        return this;
+    }
+
+    public TaskSecondSendAnOrder ClickGoTopButton (){
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(@class, \"top-button\")]")));
+        WebElement TopButton = driver.findElement(By.xpath("//a[contains(@class, \"top-button\")]"));
+        TopButton.click();
         return this;
     }
 

@@ -11,7 +11,9 @@ public class FirstTest extends TestBase {
     @Story("Scenario For Test Send Order")
     @Test
     public void ScenarioForTestSendOrder() {
-        main.goTo();
+        main
+                .goTo()
+                .SelectCity();
         taskThreeTestSecondarySS.GoMainPage();
         taskSecondSendAnOrder
                 .MathRandomHead()
@@ -20,13 +22,8 @@ public class FirstTest extends TestBase {
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
-                .ClickRandomCard()
-                .GoToFiledBasket()
-                .MathRandomHead()
-                .AssertElementsInMenu()
                 .ScrollMenuToProductCards()
-                .ScrollMenuToProductCards()
-                .ScrollMenuToProductCards()
+                .ClickGoTopButton()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
@@ -36,6 +33,9 @@ public class FirstTest extends TestBase {
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ClickGoTopButton()
+                .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
                 .MathRandomHead()
@@ -43,6 +43,20 @@ public class FirstTest extends TestBase {
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ClickGoTopButton()
+                .ScrollMenuToProductCards()
+                .ClickRandomCard()
+                .GoToFiledBasket()
+                .MathRandomHead()
+                .AssertElementsInMenu()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ClickGoTopButton()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket().MathRandomHead()
@@ -50,6 +64,9 @@ public class FirstTest extends TestBase {
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
                 .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ScrollMenuToProductCards()
+                .ClickGoTopButton()
                 .ScrollMenuToProductCards()
                 .ClickRandomCard()
                 .GoToFiledBasket()
@@ -66,16 +83,21 @@ public class FirstTest extends TestBase {
     @Story("Scenario For Test Of Secondary Site Sections")
     @Test
     public void ScenarioForTesOfSecondarySiteSections() {
-        main.goTo();
+        main
+                .goTo()
+                .SelectCity();
         taskThreeTestSecondarySS.GoMainPage();
         taskThreeTestSecondarySS.ScrollToFooterMainPage()
                 .CheckElementsInFooterSection()
                 .GoToDeliverySiteSections()
                 .GoMainPage()
-                .CheckElementsInFooterSection()
+                .ScrollToFooterMainPage()
                 .GoToAboutSiteSections()
+                .GoToContact()
+                .GoToPartner()
+                .GoMainPage()
+                .GoToRulesPayInfo()
                 .GoMainPage();
-
     }
 
 }
