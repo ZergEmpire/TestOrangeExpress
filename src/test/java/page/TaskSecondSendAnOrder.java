@@ -46,8 +46,11 @@ public class TaskSecondSendAnOrder extends PageBase {
         WebElement element = driver.findElement(By.xpath("//div[contains(@class, \"productBox\")]"));
         je.executeScript("arguments[0].scrollIntoView(true);",element);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"image\" )]")));
+        isElementByDisplayed(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"image\" )]"));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]")));
+        isElementByDisplayed(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]"));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]//div[contains(@class, \"price\" )]")));
+        isElementByDisplayed(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]//div[contains(@class, \"price\" )]"));
         return this;
     }
 
