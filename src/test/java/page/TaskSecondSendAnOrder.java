@@ -45,7 +45,9 @@ public class TaskSecondSendAnOrder extends PageBase {
         JavascriptExecutor je = (JavascriptExecutor) driver;
         WebElement element = driver.findElement(By.xpath("//div[contains(@class, \"productBox\")]"));
         je.executeScript("arguments[0].scrollIntoView(true);",element);
-
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"image\" )]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div [contains(@class, \"productBox\" )]//div[contains(@class, \"bottom\" )]//div[contains(@class, \"price\" )]")));
         return this;
     }
 
@@ -105,12 +107,12 @@ public class TaskSecondSendAnOrder extends PageBase {
     }
 
     public  TaskSecondSendAnOrder selectPayType(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".payment-title")));
-        WebElement paymentTitle = driver.findElement(By.cssSelector(".payment-title"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class = \"pay-method\"]")));
+        WebElement paymentTitle = driver.findElement(By.xpath("//div[@class = \"pay-method\"]"));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);",paymentTitle);
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#change")));
-        WebElement HowGetMoneyCourier = driver.findElement(By.cssSelector("#change"));
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class = \"pay-method\"]//input[@id = \"change\"]")));
+        WebElement HowGetMoneyCourier = driver.findElement(By.xpath("//div[@class = \"pay-method\"]//input[@id = \"change\"]"));
          HowGetMoneyCourier.click();
          HowGetMoneyCourier.clear();
         HowGetMoneyCourier.sendKeys(howMoneyToCourier);
@@ -128,24 +130,24 @@ public class TaskSecondSendAnOrder extends PageBase {
         return this;
     }
 
-    public TaskSecondSendAnOrder FuckingClick(){
+/*    public TaskSecondSendAnOrder FuckingClick(){
         WebElement FuckClick = driver.findElement(By.className("mfp-wrap mfp-close-btn-in mfp-auto-cursor my-mfp-zoom-in mfp-ready"));
         FuckClick.click();
         return this;
-    }
+    }*/
 
 
     public TaskSecondSendAnOrder MathRandomHead (){
-        List<WebElement> list = driver.findElements(By.className("scroll-nav_link"));
+        List<WebElement> list = driver.findElements(By.xpath("//a[contains(@class, \"scroll-nav_link\") and not (contains(@href, \"/menu/pizza\")) and not (contains(@href, \"/menu/deserty\"))]"));
         int i = (int) (Math.random() * list.size());
         list.get(i).click();
         return this;
     }
-    public TaskSecondSendAnOrder ClickDesert (){
+/*    public TaskSecondSendAnOrder ClickDesert (){
         WebElement desert = driver.findElement(By.xpath("//span[contains(text(), 'Десерты')]"));
         desert.click();
         return this;
-    }
+    }*/
 
 
     public TaskSecondSendAnOrder CheckStatusOrder(){

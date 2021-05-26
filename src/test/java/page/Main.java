@@ -23,10 +23,12 @@ public class Main extends PageBase {
     }
     public Main SelectCity(){
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[contains(@class, \"city-select-list\")]//li ")));
-        List<WebElement> list = driver.findElements(By.xpath("//ul[contains(@class, \"city-select-list\")]//li "));
+        /*List<WebElement> list = driver.findElements(By.xpath("//ul[contains(@class, \"city-select-list\")]//li "));
         int i = (int) (Math.random() * list.size() - 1);
         wait.until(ExpectedConditions.elementToBeClickable(list.get(i)));
-        list.get(i).click();
+        list.get(i).click();*/
+        WebElement SelectOdincovo = driver.findElement(By.xpath("//body/div[@id='select-restaurant-popup']/div[1]/div[1]/div[2]/ul[1]/li[2]/a[1]"));
+        SelectOdincovo.click();
 
         return this;
     }
