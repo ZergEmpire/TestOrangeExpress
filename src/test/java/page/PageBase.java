@@ -18,7 +18,7 @@ public class PageBase {
     String PhoneNumberLogin = "+79969797537";
     String TestName = "Test";
     String TestEmailAddress = "test@test.ru";
-    String TestPhoneNumberLogin = "+7";
+    String TestPhoneNumberLogin = "+77777777777";
     String AddressStreet = "улица Говорова, Одинцово";
     String AddressHome = "85";
     String OrderComment = "Тест. Не готовить";

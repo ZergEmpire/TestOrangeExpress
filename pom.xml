@@ -7,19 +7,138 @@
     <groupId>TestLibraryArora</groupId>
     <artifactId>TestLibraryArora</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--<properties>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   <maven.compiler.source>1.8</maven.compiler.source>
+   <maven.compiler.target>1.8</maven.compiler.target>
+   <java.version>1.8</java.version>
+
+  &lt;!&ndash; <testng.version>6.10</testng.version>&ndash;&gt;
+
+   &lt;!&ndash;<surefire.plugin.version>2.19.1</surefire.plugin.version>
+   <allure.version>2.0-BETA14</allure.version>
+   <aspectj.version>1.8.10</aspectj.version>&ndash;&gt;
+  &lt;!&ndash; <allure.results.directory>target/allure-results</allure.results.directory>
+   <allure.report.directory>target/allure-report</allure.report.directory>&ndash;&gt;
+   </properties>
+
+   <build>
+       <plugins>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>2.22.2</version>
+               <configuration>
+                   <useSystemClassLoader>false</useSystemClassLoader>
+                   <argLine>
+                       -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
+                   </argLine>
+                   <properties>
+                       <property>
+                           <name>listener</name>
+                           <value>io.qameta.allure.junit5.AllureJunit5</value>
+                       </property>
+                   </properties>
+                   <systemProperties>
+                       <property>
+                           <name>allure.results.directory</name>
+                           <value>${project.build.directory}/target/allure-results</value>
+                       </property>
+                   </systemProperties>
+               </configuration>
+               <dependencies>
+                   <dependency>
+                       <groupId>org.aspectj</groupId>
+                       <artifactId>aspectjweaver</artifactId>
+                       <version>1.8.10</version>
+                   </dependency>
+               </dependencies>
+
+           </plugin>
+           <plugin>
+               <groupId>io.qameta.allure</groupId>
+               <artifactId>allure-maven</artifactId>
+               <version>2.10.0</version>
+           </plugin>
+       </plugins>
+   </build>
+
+   <reporting>
+       <excludeDefaults>true</excludeDefaults>
+       <plugins>
+           <plugin>
+               <groupId>io.qameta.allure</groupId>
+               <artifactId>allure-maven</artifactId>
+               <version>2.10.0</version>
+
+           </plugin>
+       </plugins>
+   </reporting>
+
+   <dependencies>
+
+       <dependency>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-compiler-plugin</artifactId>
+           <version>3.8.1</version>
+       </dependency>
+
+       <dependency>
+           <groupId>org.junit.jupiter</groupId>
+           <artifactId>junit-jupiter-api</artifactId>
+           <version>5.7.0</version>
+           <scope>test</scope>
+       </dependency>
+
+       <dependency>
+           <groupId>org.seleniumhq.selenium</groupId>
+           <artifactId>selenium-java</artifactId>
+           <version>3.141.59</version>
+       </dependency>
+
+       <dependency>
+           <groupId>io.github.bonigarcia</groupId>
+           <artifactId>webdrivermanager</artifactId>
+           <version>4.3.1</version>
+       </dependency>
+
+       <dependency>
+           <groupId>ch.qos.logback</groupId>
+           <artifactId>logback-classic</artifactId>
+           <version>1.1.1</version>
+       </dependency>
+
+       <dependency>
+           <groupId>io.qameta.allure</groupId>
+           <artifactId>allure-junit5</artifactId>
+           <version>2.13.1</version>
+           <scope>test</scope>
+
+       </dependency>
+
+       <dependency>
+                   <groupId>junit</groupId>
+                   <artifactId>junit</artifactId>
+                   <version>4.12</version>
+                   <scope>test</scope>
+               </dependency>
+       </dependencies>
+
+
+</project>-->
     <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <java.version>1.8</java.version>
-
-   <!-- <testng.version>6.10</testng.version>-->
-
-    <!--<surefire.plugin.version>2.19.1</surefire.plugin.version>
-    <allure.version>2.0-BETA14</allure.version>
-    <aspectj.version>1.8.10</aspectj.version>-->
-   <!-- <allure.results.directory>target/allure-results</allure.results.directory>
-    <allure.report.directory>target/allure-report</allure.report.directory>-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!--WEB ТЕСТИРОВАНИЕ-->
+        <selenide.version>5.7.0</selenide.version>
+        <!--ОТЧЕТ ALLURE-->
+        <allure.version>2.10.0</allure.version>
+        <!--LOMBOK-->
+        <lombok.version>1.18.10</lombok.version>
+        <!--ТЕСТ РАННЕР-->
+        <junit-jupiter.version>5.6.0</junit-jupiter.version>
+        <junit-platform.version>1.6.0</junit-platform.version>
     </properties>
 
     <build>
@@ -59,7 +178,12 @@
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
                 <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>2.13.0</reportVersion>
+                </configuration>
             </plugin>
+
+
         </plugins>
     </build>
 
@@ -76,53 +200,60 @@
     </reporting>
 
     <dependencies>
-
+        <!--WEB ТЕСТИРОВАНИЕ-->
         <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
-
+        <!--ОТЧЕТ ALLURE-->
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.github.bonigarcia</groupId>
-            <artifactId>webdrivermanager</artifactId>
-            <version>4.3.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.1</version>
-        </dependency>
-
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-junit5</artifactId>
-            <version>2.13.1</version>
-            <scope>test</scope>
-
+            <version>${allure.version}</version>
         </dependency>
-
+        <!--LOMBOK-->
         <dependency>
-        			<groupId>junit</groupId>
-        			<artifactId>junit</artifactId>
-        			<version>4.12</version>
-        			<scope>test</scope>
-        		</dependency>
-        </dependencies>
-
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+        <!--ТЕСТ РАННЕР-->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit-jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-engine</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <version>${junit-platform.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>
